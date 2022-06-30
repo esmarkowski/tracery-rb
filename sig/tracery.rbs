@@ -1,0 +1,4 @@
+module Tracery
+    VERSION: String
+    # See the writing guide of Tracery: https://github.com/ruby/rbs#guides
+end

@@ -1,0 +1,434 @@
+Tracery.new
+Grammar.new 
+Tracery::Grammar.new
+exit
+Tracery::Grammar.new
+Tracery
+Tracery::Grammar
+exit
+Tracery::Grammar
+Tracery::Grammar
+exit
+exit
+Tracery::Grammar
+Tracery::Grammar.new
+exi
+exit
+Tracery::Grammar.fromJSON('test/occupations.json')
+Tracery::Grammar.fromJSON('test/occupations.json')
+Tracery
+Tracery::Grammar.fromJSON('test/occupations.json')
+Tracery::Grammar
+Tracery::Grammar.fromJSON('test/occupations.json')
+Tracery::Grammar.new
+Tracery::Grammar
+JSON
+Tracery::Grammar
+Tracery::Grammar.fromJSON('test/occupations.json')
+exit
+Tracery::Grammar.fromJSON('test/occupations.json')
+exit
+Tracery::Grammar.fromJSON('test/occupations.json')
+grammar = Tracery::Grammar.fromJSON('test/occupations.json')
+grammar
+ap grammar
+exit
+ap grammar
+grammar = Tracery::Grammar.fromJSON('test/occupations.json')
+ap grammar
+require 'awesome_print'
+ap grammar
+exit
+grammar = Tracery::Grammar.fromJSON('test/occupations.json')
+ap grammar
+exit
+grammar = Tracery::Grammar.fromJSON('test/occupations.json')
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar
+grammar.raw
+grammar.symbols
+grammar.symbols
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar
+grammar.symbols
+grammar.symbols["occupations"]
+grammar.symbols
+grammar.symbols["occupations"]
+grammar.symbols["occupations"].first
+grammar.symbols["occupations"]
+grammar
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar
+grammar.expand
+grammar.expand('occupations')
+grammar.symbols
+{"goat": ['pain', 'meep']}
+{"goat": ['pain', 'meep']}.pop
+{"goat": ['pain', 'meep']}['goat']
+{"goat": ['pain', 'meep']}['goat']
+{"goat": ['pain', 'meep']}["goat"]
+{"goat": ['pain', 'meep']}
+g = {"goat": ['pain', 'meep']}
+g["goat"]
+g[:goat]
+g[:goat].pop
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar
+grammar.rules
+grammar
+grammar.expand('occupations')
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar.expand('occupations')
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar.expand('occupations')
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar.expand('occupations')
+grammar.expand('occupations').finished_text
+grammar.expand('occupations').to_s
+grammar.expand('occupations').to_str
+grammar.expand('occupations')
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar.expand('occupations')
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar.expand('occupations')
+grammar
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar.expand('occupations')
+grammar
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar
+exit
+grammar = Tracery::Grammar.from_json('test/occupations.json')
+grammar
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.expand('name')
+grammar.expand('#name#')
+grammar.expand('#name#')
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.expand('#name#')
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.expand('#name#')
+[].present?
+[].blank?
+require 'active_support/all'
+exit
+require 'active_support/all'
+[].blank?
+reload!
+exit
+require 'active_support/all'
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.expand('#name#')
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.expand('#name#')
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.expand('#name#')
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.expand('#name#')
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Modifiers.baseEngModifiers)
+Tracery::Modifiers
+grammar.add_modifiers(Tracery::Modifiers.baseEngModifiers)
+exi
+exit
+Verbs::Conjugator.conjugate
+exit
+Verbs::Conjugator.conjugate
+"worry".verb
+"worry".verb.conjugate subject: "Matt"
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers.baseEngModifiers)
+Tracery::Modifiers
+Tracery::Modifiers.methods
+Tracery::Modifiers.methods - Object.methods
+exit
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English.base)
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English.base)
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English.base)
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English.base)
+grammar.expand("#past#")
+exit
+grammar.expand("#past#")
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English.base)
+grammar.expand("#past#")
+grammar.expand("#past#")
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English.base)
+Tracery::Modifiers::English
+exit
+Tracery::Modifiers::English
+exit
+Tracery::Modifiers::English
+exit
+Tracery::Modifiers::English
+exit
+Tracery::Modifiers::English
+exit
+Tracery::Modifiers::English
+exit
+Tracery::Modifiers::English
+exit
+Tracery::Modifiers::English
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English.base)
+grammar.expand("#past#")
+exit
+grammar.add_modifiers(Tracery::Modifiers::English.base)
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English.base)
+grammar.expand("#past#")
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English.base)
+grammar.expand("#past#")
+grammar.add_modifiers(Tracery::Modifiers::English)
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.add_modifiers(Tracery::Modifiers::English.base)
+grammar.expand("#past#")
+grammar.expand("#past.ed#")
+grammar.expand("#name#")
+grammar.expand("#name.ed#")
+grammar.expand("#name.s#")
+grammar.expand("#name.ed#")
+grammar.add_modifiers(Tracery::Modifiers::English)
+str = "#goat.conjucate(tense: :past)#
+str = "#goat.conjucate(tense: :past)#"
+str.match(/([^\(]+)\(([^)]+)\)/)
+str.match(/([^\(]+)\(([^)]+)\)/)
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.modifiers << Tracery::Modifiers::English
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.expand("#name#")
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.expand("#name#")
+grammar.modifiers
+grammar.modifiers.find { |mod| mod.respond_to? :capitalize }
+grammar.modifiers
+grammar.modifiers.first
+grammar.modifiers.first.respond_to? :capitalize
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.modifiers.first.respond_to? :capitalize
+grammar.modifiers.first.respond_to? :titleize
+grammar.modifiers.first
+grammar.modifiers.first.capitalize
+grammar.modifiers.first.isVowel
+grammar.modifiers.first.isVowel("a")
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.modifiers.first.isVowel("a")
+grammar.modifiers.first.respond_to? :titleize
+grammar.expand("#name#")
+grammar.modifiers.find { |mod| mod.respond_to? :titleize }
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.modifiers.find { |mod| mod.respond_to? :titleize }
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.expand("#name#")
+grammar.expand("#name.ed#")
+grammar.expand("#name#")
+grammar.expand("#name.ed#")
+grammar.expand("#name.ed.capitalizeAll#")
+grammar.expand("#name.ed(tense: :present)#")
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.expand("#name.ed(tense: :present)#")
+eval("tense: :present")
+"worry".verb.conjugate(**"tense: :present")
+"worry".verb.conjugate(**"tense: :present")
+eval(**"tense: :present")
+eval("tense: :present")
+eval("{tense: :present}")
+"tense: :present".to_h
+eval("tense: :present")
+grammar.expand("#name.ed(tense=present)#")
+grammar.expand("#name.ed(tense: present)#")
+"tense: present".to_h
+"tense: present".match(/\w+
+grammar.expand("#name.ed(tense: present, person: third)#")
+"tense: present, person: third".split(/\s+\,\s+/)
+"tense: present, person: third".split(/\s?\,\s?/)
+"tense: present, person: third".match(/([\w\d])+\?/)
+"tense: present, person: third".match(/([\w\d])+\s?/)
+"tense: present, person: third".match(/([\w\d])+:\s?/)
+"tense: present, person: third".match(/([\w\d])+:\s?([\w\d]+)/)
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/)
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/).matches
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/)
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/)[1]
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/)[0]
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/).methods
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/).methods - Object.methods
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/).post_match
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/).names
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/).captures
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/g).captures
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/).captures
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/g).captures
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/x).captures
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/gx).captures
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/i).captures
+"tense: present, person: third".match(/([\w\d]+):\s?([\w\d]+)/).captures
+"tense: present, person: third".scan(/([\w\d]+):\s?([\w\d]+)/)
+Hash["tense: present, person: third".scan(/([\w\d]+):\s?([\w\d]+)/)]
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.expand("#name.ed(tense: present, person: third)#")
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.expand("#name.ed(tense: present, person: third)#")
+grammar.expand("#name.ed(tense: present, person: first)#")
+grammar.expand("#name.ed(tense: past, person: first)#")
+grammar.expand("be.ed(tense: past, person: first)")
+grammar.expand("#be.ed(tense: past, person: first)#")
+grammar.expand("#name.ed(tense: past, person: first)#")
+grammar.expand("#be.ed(tense: past, person: first)#")
+grammar.expand("#be.ed(tense: past, person: third)#")
+grammar.expand("#sleep.ed(tense: past, person: third)#")
+grammar.expand("#sleep.ed(tense: past, person: first)#")
+"sleep".conjugate(tense: :past)
+"sleep".verb.conjugate(tense: :past)
+grammar.expand("sleep#.ed(tense: past, person: first)#")
+grammar.expand("#sleep.ed(tense: past, person: first)#")
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.expand("#verb.ed(tense: past, person: first)#")
+grammar.expand("#verbs.ed(tense: past, person: first)#")
+grammar.expand("#verbs.ed(tense: past, person: first)#")
+"sleep".verb.conjugate(*{"tense"=>"past", "person"=>"first"})
+"sleep".verb.conjugate(**{"tense"=>"past", "person"=>"first"})
+"sleep".verb.conjugate(**{"tense"=>"present", "person"=>"first"})
+"sleep".verb.conjugate(**{"tense"=>"present"})
+"sleep".verb.conjugate(**{"tense"=>"past"})
+"sleep".verb.conjugate(**{tense: "past"})
+"sleep".verb.conjugate(**{tense: "past", "person"=>"first"})
+"sleep".verb.conjugate(*{"tense"=>"present", "person"=>"first"})
+"sleep".verb.conjugate(*[{"tense"=>"present", "person"=>"first"}])
+"sleep".verb.conjugate(**[{"tense"=>"present", "person"=>"first"}])
+"sleep".verb.conjugate(*{"tense"=>"present", "person"=>"first"})
+"sleep".verb.conjugate(**{"tense"=>"present", "person"=>"first"})
+"sleep".verb.conjugate(**{:tense=>"present", "person"=>"first"})
+"sleep".verb.conjugate(**{:tense=>"present", :person=>"first"})
+"sleep".verb.conjugate(**{:tense=>"present", :person=>"first"}.symbolize_keys)
+"sleep".verb.conjugate(**{:tense=>"present", :person=>"first"}.symbolize_keys.symbolize_values)
+"sleep".verb.conjugate(**{:tense=>"present", :person=>"first"}.symbolize_keys)
+"sleep".verb.conjugate(**{:tense=>:present, :person=>:first}.symbolize_keys)
+"sleep".verb.conjugate(**{:tense=>:present, :person=>:first}.symbolize_keys)
+"sleep".verb.conjugate(**{:tense=>:past, :person=>:first}.symbolize_keys)
+"sleep".verb.conjugate(**{:tense=>'past', :person=>:first}.symbolize_keys)
+"sleep".verb.conjugate(**{:tense=>:past, :person=>:first}.symbolize_keys)
+"sleep".verb.conjugate(**{'tense'=>:past, :person=>:first}.symbolize_keys)
+"sleep".verb.conjugate(**{'tense'=>:past, :person=>:first}.symbolize_keys.tranform_values(&:to_sym))
+"sleep".verb.conjugate(**{'tense'=>:past, :person=>:first}.symbolize_keys.transform_values(&:to_sym))
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.expand("#verbs.ed(tense: past, person: first)#")
+grammar.expand("#verbs.a#")
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.add_modifiers(Tracery::Modifiers::English)
+grammar.expand("#name.a#")
+grammar.modifiers << Tracery::Modifiers::English
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.modifiers << Tracery::Modifiers::English
+grammar.expand("#name.a#")
+grammar.flatten("#name.a#")
+grammar.to_s
+grammar.flatten("#name.a#")
+grammar.expand("#name.a#")
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.modifiers << Tracery::Modifiers::English
+grammar.expand("#name.a#")
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.modifiers << Tracery::Modifiers::English
+grammar.expand("#name.a#")
+grammar.expand("#name.a#")
+grammar.flatten("#name.a#")
+grammar.flatten("#name.a#")
+exit
+grammar = Tracery::Grammar.from_json('test/flower_names.json')
+grammar.modifiers << Tracery::Modifiers::English
+grammar.expand("#name.a#")
+exit
