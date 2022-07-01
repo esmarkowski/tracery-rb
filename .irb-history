@@ -432,3 +432,81 @@ grammar = Tracery::Grammar.from_json('test/flower_names.json')
 grammar.modifiers << Tracery::Modifiers::English
 grammar.expand("#name.a#")
 exit
+Array.methods - Object.methods
+Array.instance_methods - Object.methods
+exit
+Tracery::RuleSet
+grammar = Tracery::Grammar.new({\
+    "injuries": ["broken #bone#", "lost #body_part.indefinite_article#", "burn on #body_part#", "scars on #body_part#"],\
+    "sickness": ["#disease#"],\
+    "luck": ["#bad_luck#", "#good_luck#"],\
+    "close_encounters": ["#animal#", "#creature#", "#monster#", "#humanoid#", "#undead#"],\
+    "meetings": ["#animal#", "#creature#", "#monster#", "#humanoid#", "#undead#"],\
+    "deeds": ["#cheated#", "#good_deed#", "#bad_deed#", "#evil_deed#"],\
+    "skills": ["#training#", "#crafting#", "#magic#", "#lore#", "#perception#", "#stealth#", "#survival#"]\
+})
+grammar
+grammar.rules
+grammar.symbols
+grammar.symbols[:injuries]
+grammar.symbols[:injuries].rules
+grammar.symbols[:injuries].rules
+grammar.symbols[:injuries].rules.concat
+grammar.symbols[:injuries].rules.concat
+exit
+grammar = Tracery::Grammar.new({\
+    "injuries": ["broken #bone#", "lost #body_part.indefinite_article#", "burn on #body_part#", "scars on #body_part#"],\
+    "sickness": ["#disease#"],\
+    "luck": ["#bad_luck#", "#good_luck#"],\
+    "close_encounters": ["#animal#", "#creature#", "#monster#", "#humanoid#", "#undead#"],\
+    "meetings": ["#animal#", "#creature#", "#monster#", "#humanoid#", "#undead#"],\
+    "deeds": ["#cheated#", "#good_deed#", "#bad_deed#", "#evil_deed#"],\
+    "skills": ["#training#", "#crafting#", "#magic#", "#lore#", "#perception#", "#stealth#", "#survival#"]\
+})
+grammar.
+grammar.symbols[:injuries].rules.concat
+Array.instance_methods - Object.methods
+grammar.symbols[:injuries].rules.to_a
+grammar.symbols[:injuries].rules
+grammar.symbols[:injuries].rules.to_a
+grammar.symbols[:injuries].rules.each { |d| puts d }
+exit
+grammar = Tracery::Grammar.new({\
+    "injuries": ["broken #bone#", "lost #body_part.indefinite_article#", "burn on #body_part#", "scars on #body_part#"],\
+    "sickness": ["#disease#"],\
+    "luck": ["#bad_luck#", "#good_luck#"],\
+    "close_encounters": ["#animal#", "#creature#", "#monster#", "#humanoid#", "#undead#"],\
+    "meetings": ["#animal#", "#creature#", "#monster#", "#humanoid#", "#undead#"],\
+    "deeds": ["#cheated#", "#good_deed#", "#bad_deed#", "#evil_deed#"],\
+    "skills": ["#training#", "#crafting#", "#magic#", "#lore#", "#perception#", "#stealth#", "#survival#"]\
+})
+grammar.symbols[:injuries].rules.each { |d| puts d }
+grammar.symbols[:injuries].rules.to_a
+grammar.symbols[:injuries].rules
+grammar.symbols[:injuries].rules.first
+grammar.symbols[:injuries].rules.first.to_a
+exit
+['test', 'a'].index_of('a')
+['test', 'a'].index('a')
+['test', 'a'].index('a')
+['test', 'a'].index('test')
+bundle exec rspec spec/tracery/rule_set_spec.rb
+exit
+track = 5.times.map.do 
+track = 5.times.map do 
+['goat', 'pain'].sample
+end
+
+track = 5.times do 
+['goat', 'pain'].sample
+end
+track
+track = 5.times.map do 
+['goat', 'pain'].sample
+end
+track
+track = 5.times.map { ['goat', 'pain'].sample }
+track
+track.tally
+bundle exec rspec spec/tracery/rule_set_spec.rb
+exit

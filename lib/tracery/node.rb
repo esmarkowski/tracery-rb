@@ -100,11 +100,11 @@ module Tracery
 
                     # Create all the pre_actions from the raw syntax
                     @pre_actions = parsed[:pre_actions].map{|pre_action|
-                        NodeAction.new(self, pre_action[:raw])
+                        Tracery::NodeAction.new(self, pre_action[:raw])
                     }
 
                     # @post_actions = parsed[:pre_actions].map{|post_actions|
-                    #     NodeAction.new(self, post_actions.raw)
+                    #     Tracery::NodeAction.new(self, post_actions.raw)
                     # }
                     
                     # Make undo actions for all pre_actions (pops for each push)
@@ -150,7 +150,7 @@ module Tracery
                     @post_actions.each{|post_action| post_action.activate()}
                 when 2 then
                     # Just a bare action? Expand it!
-                    @action = NodeAction.new(self, @raw)
+                    @action = Tracery::NodeAction.new(self, @raw)
                     @action.activate()
                     
                     # No visible text for an action

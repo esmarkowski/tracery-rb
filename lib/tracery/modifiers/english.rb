@@ -1,8 +1,14 @@
+require 'tracery/inflections/en'
+
+# Automatically load inflections from the inflections directory 
+# and use locale instead of module name. ex: :en
 module Tracery
     module Modifiers
         module English
             A_REQUIRING_PATTERNS = /^(([bcdgjkpqtuvwyz]|onc?e|onearmed|onetime|ouija)$|e[uw]|uk|ubi|ubo|oaxaca|ufo|ur[aeiou]|use|ut([^t])|unani|uni(l[^l]|[a-ko-z]))/i
             AN_REQUIRING_PATTERNS = /^([aefhilmnorsx]$|hono|honest|hour|heir|[aeiou]|8|11)/i
+            
+
             
             class << self
                 def isVowel(c)

@@ -2,37 +2,27 @@ module Tracery
     class Grammar
         attr_accessor :distribution, :modifiers, :symbols, :subgrammars
 
-        def initialize(raw) #, settings
-            @modifiers = []
+        def initialize(raw, modifiers = [])
+            @modifiers = [modifiers].flatten
             load(raw)
         end
 
-        def self.from_json(path_to_file)
+        def self.from_json(path_to_file, modifiers = [])
             json = JSON.parse(File.read(path_to_file))
-            return Grammar.new(json)
+            return Grammar.new(json, modifiers)
         end
         
         def clear_state
             @symbols.each{|k,v| v.clear_state} # TODO_ check for nil keys
         end
         
-        # TODO: Allow modifiers << mods
-        # TODO: change to add_modifiers
-        def add_modifiers(mods)
-            # copy over the base modifiers
-            modifiers.push(mods)
-            # mods.each{|k,v| @modifiers[k] = v}
-        end
-        
-        # TODO: rename to load 
         def load(raw)
             @symbols = {}
             @subgrammars = []
             return if(raw.nil?)
-            @symbols = raw.inject({}) { |memo, (key, value)| memo[key] = Tracery::Symbol.new(self, key, value); memo }
+            @symbols = raw.inject({}) { |memo, (key, value)| memo[key] = Tracery::RuleSet.new(self, value); memo }.with_indifferent_access
         end
 
-        
         def expand(rule, allow_escape_chars = false)
             root = create_root(rule)
             root.expand
@@ -44,14 +34,18 @@ module Tracery
             return expand(rule, allow_escape_chars).finished_text
         end
         
-        def push_rules(key, raw_rules, source_action)
+        def push_rules(key, raw_rules, source_action = nil)
             # Create or push rules
-            if(@symbols[key].nil?) then
-                @symbols[key] = Tracery::Symbol.new(self, key, raw_rules)
-                @symbols[key].is_dynamic = true if source_action
+            unless(@symbols.has_key? key.to_sym)
+                @symbols[key.to_sym] = Tracery::RuleSet.new(self, raw_rules)
+                # @symbols[key.to_sym].is_dynamic = true if source_action
             else
-                @symbols[key].push(raw_rules)
+                @symbols[key.to_sym].concat(raw_rules)
             end
+        end
+
+        def push(rules)
+            rules.each { |key, value| push_rules(key, value) }
         end
         
         def pop_rules(key)
@@ -59,10 +53,9 @@ module Tracery
             @symbols[key].pop
         end
         
-        def select_rule(key, node, errors)
-            if(@symbols.has_key? key) 
-                return @symbols[key].select_rule(node, errors)
-            end
+        def select_rule(key, node = nil, errors = [])
+            return @symbols[key].select_rule if symbols.has_key? key
+                
             
             # Failover to alternative subgrammars
             @subgrammars.each do |subgrammar|
@@ -93,6 +86,21 @@ module Tracery
         end
 
         private
+
+        def method_missing(m, *args, &block)
+            if symbols.has_key?(m.to_sym)
+                symbols[m.to_sym]
+            #   self.send(@@[m.to_sym], *args, &block)
+            else
+              raise ArgumentError.new("Method `#{m}` doesn't exist.")
+            end
+        end
+        
+        def respond_to?(method_name, include_private = false)
+            symbols.has_key?(method_name.to_sym) || super
+        end
+
+
         def create_root(rule)
             # Create a node and subnodes
             root = Tracery::Node.new(self, 0, {

@@ -32,21 +32,21 @@ module Tracery
             case(@type)
                 when 0 then
                     # split into sections (the way to denote an array of rules)
-                    ruleSections = @rule.split(",")
-                    finishedRules = ruleSections.map{|ruleSection|
+                    rule_sections = @rule.split(",")
+                    finished_rules = rule_sections.map{|rule_section|
                         n = Tracery::Node.new(grammar, 0, {
                                 type: -1,
-                                raw: ruleSection
+                                raw: rule_section
                             })
-                        n.expand()
-                        n.finishedText
+                        n.expand
+                        n.finished_text
                     }
                     
                     # TODO: escape commas properly
-                    grammar.pushRules(@target, finishedRules, self)
+                    grammar.push_rules(@target, finished_rules, self)
                     # puts("Push rules: #{@target} #{@ruleText}")
                 when 1 then
-                    grammar.popRules(@target);
+                    grammar.pop_rules(@target);
                 when 2 then
                     grammar.flatten(@target, true);
             end
@@ -54,7 +54,7 @@ module Tracery
 
         def createUndo
             if(@type == 0) then
-                return NodeAction.new(@node, "#{@target}:POP")
+                return Tracery::NodeAction.new(@node, "#{@target}:POP")
             end
             # TODO Not sure how to make Undo actions for functions or POPs
             return nil
