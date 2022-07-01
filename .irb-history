@@ -510,3 +510,13 @@ track
 track.tally
 bundle exec rspec spec/tracery/rule_set_spec.rb
 exit
+"goat man".upcase_first
+"goat man".upcase_first
+exit
+d = {body_part: ['body', 'head', 'legs']}
+d.values
+d.values.flatten
+d[bundle exec rspec spec/tracery/grammar_spec.rb
+exit
+exit
+exit

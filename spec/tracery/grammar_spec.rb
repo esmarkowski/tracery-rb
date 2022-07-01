@@ -3,18 +3,44 @@ RSpec.describe Tracery::Grammar do
 
     context "Grammar" do
 
-        let(:grammar) { Tracery::Grammar.new({body_part: ['body', 'head', 'legs']}) }
+        let(:body_parts) { ['body', 'head', 'legs'] }
+        let(:default_rules) { {body_part: body_parts} }
+        let(:grammar) { Tracery::Grammar.new(default_rules) }
+
 
         context "Modifiers" do
+
+            let(:grammar) { Tracery::Grammar.new(default_rules, Tracery::Modifiers::English) }
+            
+            context "backwards compatibility" do
+
+                it '.s' do
+                    expect(grammar.flatten("#body_part.s#")).to be_in(body_parts.map(&:pluralize))
+                end
+
+                it '.capitalize' do
+                    expect(grammar.flatten("#body_part.capitalize#")).to be_in(body_parts.map(&:capitalize))
+                end
+
+                it '.capitalizeAll' do
+                    expect(grammar.flatten("#body_part.capitalizeAll#")).to be_in(body_parts.map(&:titleize))
+                end
+
+                it '.firstS' do
+                    expect(grammar.flatten("#body_part.firstS#")).to be_in(body_parts.map(&:upcase_first))
+                end
+
+            end
+
             it 'accepts modifiers' do
-                grammar = Tracery::Grammar.new({body_part: ['body', 'head', 'legs']}, Tracery::Modifiers::English)
+                grammar = Tracery::Grammar.new(default_rules, Tracery::Modifiers::English)
                 result = grammar.flatten('#body_part.capitalize#')
-                expect(result).to be_in(['body', 'head', 'legs'].map(&:capitalize))
+                expect(result).to be_in(body_parts.map(&:capitalize))
             end
         end
 
         it 'keeps track of symbols' do
-            expect(grammar.symbols[:body_part]).to eq ['body', 'head', 'legs']
+            expect(grammar.symbols[:body_part]).to eq body_parts
         end
 
         it 'creates new RuleSets' do
@@ -24,7 +50,7 @@ RSpec.describe Tracery::Grammar do
         end
 
         it 'returns a random rule' do
-           expect(grammar.flatten("#body_part#")).to be_in(['body', 'head', 'legs'])
+           expect(grammar.flatten("#body_part#")).to be_in(body_parts)
         end
 
         it 'expands a rule' do
@@ -34,7 +60,7 @@ RSpec.describe Tracery::Grammar do
 
         it 'appends to existing RuleSets' do
             grammar.push({body_part: ['arm']})
-            expect(grammar.symbols[:body_part]).to eq ['body', 'head', 'legs', 'arm']
+            expect(grammar.symbols[:body_part]).to eq (body_parts << 'arm')
         end
 
         it 'expands nested rules' do
