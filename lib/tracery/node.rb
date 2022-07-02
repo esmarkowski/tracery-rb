@@ -126,11 +126,15 @@ module Tracery
                     # so that modifier parameters can contain tags "#story.replace(#protagonist#, #newCharacter#)#"
                     @modifiers.each{|mod_name|
                         mod_params = [];
-                        if (mod_name.include?("(")) then
+                        if mod_name.include?("(")
                             #match something like `modifier(param, param)`, capture name and params separately
                             match = /([^\(]+)\(([^)]+)\)/.match(mod_name)
-                            if(!match.nil?) then
-                                mod_params = Hash[match.captures[1].scan(/([\w\d]+):\s?([\w\d]+)/)]
+                            unless match.nil?
+                                mod_params = if match.captures[1] =~ /:/
+                                    Hash[match.captures[1].scan(/([\w\d]+):\s?([\w\d]+)/)]
+                                else
+                                    match.captures[1]
+                                end
                                 mod_name = match.captures[0]
                             end
                         end
@@ -139,7 +143,7 @@ module Tracery
                         mod = @grammar.modifiers.reverse.find {|mod| mod.respond_to? mod_name }
                         
                         # Missing modifier?
-                        if(mod.nil?)
+                        if mod.blank?
                             @errors << "Missing modifier #{mod_name}"
                             @finished_text += "((.#{mod_name}))"
                         else
@@ -301,7 +305,8 @@ module Tracery
                 # raise "no main section in #{tag_contents}"
             else
                 
-                components = symbol_section.split(".");
+                # split on single \. only
+                components = symbol_section.split(/(?<!\.)\.(?!\.)/);
                 parsed[:symbol] = components.first
                 parsed[:modifiers] = components.drop(1)
             end

@@ -44,7 +44,7 @@ module Tracery
             end
         end
 
-        def push(rules)
+        def push(rules = {})
             rules.each { |key, value| push_rules(key, value) }
         end
         
@@ -85,6 +85,9 @@ module Tracery
             return "Tracery::Grammar(#{@symbols.size} symbols) @symbols=#{@symbols.inspect}"
         end
 
+        def respond_to?(method_name, include_private = false)
+            symbols.has_key?(method_name.to_sym) || self.instance_variables.include?("@#{method_name}".to_sym) || super
+        end
         private
 
         def method_missing(m, *args, &block)
@@ -96,9 +99,7 @@ module Tracery
             end
         end
         
-        def respond_to?(method_name, include_private = false)
-            symbols.has_key?(method_name.to_sym) || super
-        end
+
 
 
         def create_root(rule)

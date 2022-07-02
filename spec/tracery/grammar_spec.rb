@@ -37,6 +37,7 @@ RSpec.describe Tracery::Grammar do
                 result = grammar.flatten('#body_part.capitalize#')
                 expect(result).to be_in(body_parts.map(&:capitalize))
             end
+
         end
 
         it 'keeps track of symbols' do

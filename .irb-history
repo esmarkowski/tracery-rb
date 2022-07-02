@@ -520,3 +520,33 @@ d[bundle exec rspec spec/tracery/grammar_spec.rb
 exit
 exit
 exit
+"#s.random(0..6)#".split(".")
+"#s.random(0..6)#".split(/\.{1}/)
+"#s.random(0..6)#".split(/\.{2}/)
+"#s.random(0..6)#".split(/\.\1{1}/)
+"#s.random(0..6)#".split(/(.)\1{1}/)
+"#s.random(0..6)#".split(/(?<!\.)\.(?!\.)/)
+bundle exec rspec spec/tracery/modifiers/numerical_spec.rb
+exit
+"0..30"
+eval("0..30")
+safe_eval
+"0..30"
+Range.new "0..30"
+Range.new 0, 30
+Range.new 0, 30bundle exec rspec spec/tracery/modifiers/numerical_spec.rb
+exit
+Range.new 0, 30
+range = Range.new 0, 30
+rand(range)
+bundle exec rspec spec/tracery/modifiers/numerical_spec.rb
+exit
+range = Range.new "0..30".split(/\.{2,3}/)
+range = Range.new *"0..30".split(/\.{2,3}/)
+range
+range = Range.new *"0..30".split(/\.{2,3}/)
+"0..30"
+range = Range.new *"0..30".split(/\.{2,3}/).map(&:to_i)
+range
+bundle exec rspec spec/tracery/modifiers/numerical_spec.rb
+exit
