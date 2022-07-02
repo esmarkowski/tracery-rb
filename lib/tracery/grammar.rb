@@ -91,6 +91,11 @@ module Tracery
         private
 
         def method_missing(m, *args, &block)
+            if m.to_s =~ /!$/
+                m = m.to_s[0..-2]
+                return flatten(@symbols[m.to_sym].select_rule) if @symbols.has_key?(m.to_sym)
+            end
+
             if symbols.has_key?(m.to_sym)
                 symbols[m.to_sym]
             #   self.send(@@[m.to_sym], *args, &block)

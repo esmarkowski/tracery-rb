@@ -73,6 +73,18 @@ RSpec.describe Tracery::Grammar do
             expect(grammar.flatten("#injuries##head_injury#")).to be_in(head_parts) 
         end
 
+        context 'dot notation' do
+        
+            it 'can access symbols by dot notation' do
+                expect(grammar.body_part).to eq(body_parts)
+            end
+
+            it 'can flatten symbols with bang' do
+                expect(grammar.body_part!).to be_in(body_parts)
+            end
+
+        end
+
     end
 
 end
