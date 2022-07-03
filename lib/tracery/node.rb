@@ -81,7 +81,7 @@ module Tracery
             # -1: raw, needs parsing
             #  0: Plaintext
             #  1: Tag ("#symbol.mod.mod2.mod3#" or "#[pushTarget:pushRule]symbol.mod#")
-            #  2: Action ("[pushTarget:pushRule], [pushTarget:POP]", more in the future)
+            #  2: Action ("[pushTarget:pushRule], [pushTarget:POP], [pushTarget:REPLACE]", more in the future)
             
             case(@type)
                 when -1 then
@@ -160,7 +160,16 @@ module Tracery
                     # No visible text for an action
                     # TODO: some visible text for if there is a failure to perform the action?
                     @finished_text = ""
+                when 3 then
+                    
+                    pre_expansion = expand_children(@raw, prevent_recursion)
+                    composite_rule = "##{@finished_text}#"
+
+                    @raw = composite_rule
+                    expand_children(@raw, prevent_recursion)
+
             end
+            self
         end
 
         def parse(rule)
@@ -222,6 +231,23 @@ module Tracery
                                 end
                                 in_tag = !in_tag
                             end
+                        when '<' then
+                                if(start < i) then
+                                    create_section(start, i, 0, results, last_escaped_char, escaped_substring, rule, errors)
+                                    last_escaped_char = nil
+                                    escaped_substring = ""
+                                end
+                                start = i + 1
+                            depth += 1
+                        when '>' then
+                            # End a bracketed section
+                            # if(!in_tag) then
+                                create_section(start, i, 3, results, last_escaped_char, escaped_substring, rule, errors)
+                                last_escaped_char = nil
+                                escaped_substring = ""
+                                start = i + 1
+                            # end
+                            depth -= 1
                         when '\\' then
                             escaped = true;
                             escaped_substring = escaped_substring + rule[start...i];

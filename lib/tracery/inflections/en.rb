@@ -9,6 +9,9 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
     inflect.uncountable 'deer'
     inflect.uncountable 'elk'
     inflect.uncountable 'moose'
+    inflect.uncountable 'trout'
+    inflect.uncountable 'salmon'
+    inflect.plural 'human', 'humans'
   
     inflect.uncountable 'equipment'
 end

@@ -48,6 +48,10 @@ module Tracery
                 end
                 alias s pluralize
 
+                def singularize(s, parameters)
+                    s.singularize
+                end
+
                 def conjugate(s, parameters)
                     puts "Conjugate: #{s} #{parameters}"
                     s.verb.conjugate(**parameters.symbolize_keys.transform_values(&:to_sym))

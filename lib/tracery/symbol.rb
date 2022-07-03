@@ -1,7 +1,7 @@
 module Tracery
     class Symbol < Array
         attr_accessor :is_dynamic
-        delegate :concat, :push, :include?, to: :rules
+        attr_reader :uses
 
         def initialize(grammar, key, raw_rules)
             # Symbols can be made with a single value, and array, or array of objects of (conditions/values)
@@ -23,7 +23,6 @@ module Tracery
             @stack
         end
 
-        
         def pop
             @stack.pop
         end
@@ -37,9 +36,12 @@ module Tracery
             return @stack.last.select_rule
         end
 
+        def inspect
+            "#{@base_rules}"
+        end
 
-        def to_json
-            @rules.to_json
+        def as_json(options = {})
+            rules.flatten.as_json
         end
     end
 

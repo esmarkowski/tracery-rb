@@ -37,7 +37,7 @@ module Tracery
         def push_rules(key, raw_rules, source_action = nil)
             # Create or push rules
             unless(@symbols.has_key? key.to_sym)
-                @symbols[key.to_sym] = Tracery::RuleSet.new(self, raw_rules)
+                @symbols[key.to_sym] = Tracery::Symbol.new(self, key, raw_rules)
                 # @symbols[key.to_sym].is_dynamic = true if source_action
             else
                 @symbols[key.to_sym].concat(raw_rules)
@@ -51,6 +51,10 @@ module Tracery
         def pop_rules(key)
             errors << "No symbol for key #{key}" if(@symbols[key].nil?)
             @symbols[key].pop
+        end
+
+        def replace(key, rules)
+            @symbols[key] = Tracery::Symbol.new(self, key, rules)
         end
         
         def select_rule(key, node = nil, errors = [])
@@ -70,6 +74,9 @@ module Tracery
         end
 
 
+        def as_json(options = {})
+            @symbols.as_json
+        end
 
         def to_json
             # symbols = @symbols.each.collect(&:as_json)
@@ -86,19 +93,19 @@ module Tracery
         end
 
         def respond_to?(method_name, include_private = false)
-            symbols.has_key?(method_name.to_sym) || self.instance_variables.include?("@#{method_name}".to_sym) || super
+            bangless_method = method_name.to_s.gsub(/!$/, "")
+            symbols.has_key?(bangless_method.to_sym) || self.instance_variables.include?("@#{method_name}".to_sym) || super
         end
+
         private
+
 
         def method_missing(m, *args, &block)
             if m.to_s =~ /!$/
                 m = m.to_s[0..-2]
                 return flatten(@symbols[m.to_sym].select_rule) if @symbols.has_key?(m.to_sym)
-            end
-
-            if symbols.has_key?(m.to_sym)
+            elsif symbols.has_key?(m.to_sym)
                 symbols[m.to_sym]
-            #   self.send(@@[m.to_sym], *args, &block)
             else
               raise ArgumentError.new("Method `#{m}` doesn't exist.")
             end

@@ -46,7 +46,7 @@ RSpec.describe Tracery::Grammar do
 
         it 'creates new RuleSets' do
             grammar.push({injuries: ['missing #body_part#']}) 
-            expect(grammar.symbols[:injuries]).to be_a Tracery::RuleSet
+            expect(grammar.symbols[:injuries]).to be_a Tracery::Symbol
             expect(grammar.symbols[:injuries]).to include("missing #body_part#")
         end
 

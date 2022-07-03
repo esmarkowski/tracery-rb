@@ -1,47 +1,3 @@
-Tracery.new
-Grammar.new 
-Tracery::Grammar.new
-exit
-Tracery::Grammar.new
-Tracery
-Tracery::Grammar
-exit
-Tracery::Grammar
-Tracery::Grammar
-exit
-exit
-Tracery::Grammar
-Tracery::Grammar.new
-exi
-exit
-Tracery::Grammar.fromJSON('test/occupations.json')
-Tracery::Grammar.fromJSON('test/occupations.json')
-Tracery
-Tracery::Grammar.fromJSON('test/occupations.json')
-Tracery::Grammar
-Tracery::Grammar.fromJSON('test/occupations.json')
-Tracery::Grammar.new
-Tracery::Grammar
-JSON
-Tracery::Grammar
-Tracery::Grammar.fromJSON('test/occupations.json')
-exit
-Tracery::Grammar.fromJSON('test/occupations.json')
-exit
-Tracery::Grammar.fromJSON('test/occupations.json')
-grammar = Tracery::Grammar.fromJSON('test/occupations.json')
-grammar
-ap grammar
-exit
-ap grammar
-grammar = Tracery::Grammar.fromJSON('test/occupations.json')
-ap grammar
-require 'awesome_print'
-ap grammar
-exit
-grammar = Tracery::Grammar.fromJSON('test/occupations.json')
-ap grammar
-exit
 grammar = Tracery::Grammar.fromJSON('test/occupations.json')
 grammar = Tracery::Grammar.from_json('test/occupations.json')
 grammar
@@ -549,4 +505,23 @@ range = Range.new *"0..30".split(/\.{2,3}/)
 range = Range.new *"0..30".split(/\.{2,3}/).map(&:to_i)
 range
 bundle exec rspec spec/tracery/modifiers/numerical_spec.rb
+exit
+"REPLACE#age#".scan(/REPLACE(?<rule>.*)$/)
+"REPLACE#age#" =~ /REPLACE(?<rule>.*)$/
+"REPLACE#age#" =~ /REPLACE/
+"REPLACE#age#" =~ /eREPLACE/
+"REPLACE#age#" =~ /REPLACE/
+"1REPLACE#age#" =~ /REPLACE/
+"2REPLACE#age#" =~ /REPLACE/
+exit
+md = "REPLACE#age#".match(/REPLACE(?<rule>.*)$/)
+md
+md.named_captures
+md.named_captures["rule"]
+md.named_captures[:rule]
+md.named_captures["rule"]]
+exit
+exit
+bundle exec rspec spec/tracery/node_spec.rb
+bundle exec rspec spec/tracery/node_spec.rb
 exit

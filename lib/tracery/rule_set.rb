@@ -18,6 +18,10 @@ module Tracery
             end  # TODO: support for conditional and hierarchical rule sets
 
         end
+
+        def inspect
+            "#{@default_uses}"
+        end
         
         def select_rule
             # puts "Get rule #{@raw}"
@@ -54,6 +58,10 @@ module Tracery
             end
 
             raise "No default rules defined for #{self}"
+        end
+
+        def as_json(options = {})           
+           super(options) 
         end
 
         def clear

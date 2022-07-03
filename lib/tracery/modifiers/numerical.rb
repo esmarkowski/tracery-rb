@@ -14,6 +14,22 @@ module Tracery
                     end
                 end
 
+                def add(s,parameters)
+                    (s.to_i + parameters.to_i).to_s
+                end
+
+                def subtract(s,parameters)
+                    (s.to_i - parameters.to_i).to_s
+                end
+
+                def multiply(s,parameters)
+                    (s.to_i * parameters.to_i).to_s
+                end
+
+                def divide(s,parameters)
+                    (s.to_i / parameters.to_i).to_s
+                end
+
 
             end
 

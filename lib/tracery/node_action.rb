@@ -17,12 +17,12 @@ module Tracery
                 # No colon? A function!
                 @type = 2
             else
-                # Colon? It's either a push or a pop
+                # Colon? It's either a push or a pop or a replace
                 @rule = sections[1] || ""
-                if(@rule == "POP")
-                    @type = 1;
-                else
-                    @type = 0;
+                @type = case(@rule)
+                    when /^POP/ then 1
+                    when /^SET/ then 3
+                    else 0
                 end
             end
         end
@@ -33,14 +33,14 @@ module Tracery
                 when 0 then
                     # split into sections (the way to denote an array of rules)
                     rule_sections = @rule.split(",")
-                    finished_rules = rule_sections.map{|rule_section|
+                    finished_rules = rule_sections.map do |rule_section|
                         n = Tracery::Node.new(grammar, 0, {
                                 type: -1,
                                 raw: rule_section
                             })
                         n.expand
                         n.finished_text
-                    }
+                    end
                     
                     # TODO: escape commas properly
                     grammar.push_rules(@target, finished_rules, self)
@@ -49,10 +49,15 @@ module Tracery
                     grammar.pop_rules(@target);
                 when 2 then
                     grammar.flatten(@target, true);
+                when 3 then
+                    match = @rule.match(/SET(?<rule>.*)$/)
+                    replacment_value = grammar.flatten(match.named_captures["rule"])
+                    grammar.replace(@target, replacment_value);
+
             end
         end
 
-        def createUndo
+        def create_undo
             if(@type == 0) then
                 return Tracery::NodeAction.new(@node, "#{@target}:POP")
             end
@@ -62,14 +67,11 @@ module Tracery
 
         def toText
             case(@type)
-                when 0 then
-                    return "#{@target}:#{@rule}"
-                when 1 then
-                    return "#{@target}:POP"
-                when 2 then
-                    return "((some function))"
-                else
-                    return "((Unknown Action))"
+                when 0 then "#{@target}:#{@rule}"
+                when 1 then "#{@target}:POP"
+                when 2 then "((some function))"
+                when 3 then "#{@target}:SET:#{@rule}"
+                else "((Unknown Action))"
             end
         end
     end
